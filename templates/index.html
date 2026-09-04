@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SQL Injection Lab | Jenneffer Souza</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="lab-card">
+
+            <!-- CABEÇALHO -->
+
+            <div class="project-icon">
+                🧪
+            </div>
+
+            <p class="project-category">
+                Cybersecurity Educational Lab
+            </p>
+
+            <h1>
+                SQL Injection Lab
+            </h1>
+
+            <p class="description">
+                Ambiente educacional desenvolvido para comparar
+                consultas vulneráveis e técnicas seguras de acesso
+                a banco de dados.
+            </p>
+
+
+            <!-- AVISO -->
+
+            <div class="warning-box">
+
+                <span>⚠️</span>
+
+                <p>
+                    Este laboratório utiliza apenas dados fictícios
+                    em um ambiente local controlado.
+                </p>
+
+            </div>
+
+
+            <!-- MODOS -->
+
+            <div class="mode-selector">
+
+                <button
+                    class="mode-button active"
+                    id="vulnerableMode"
+                    type="button"
+                >
+                    ⚠ Vulnerable Mode
+                </button>
+
+
+                <button
+                    class="mode-button"
+                    id="secureMode"
+                    type="button"
+                >
+                    🛡 Secure Mode
+                </button>
+
+            </div>
+
+
+            <!-- LOGIN -->
+
+            <div class="login-section">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="small-label">
+                            SIMULATED LOGIN
+                        </p>
+
+                        <h2>
+                            Teste de autenticação
+                        </h2>
+
+                    </div>
+
+                    <span
+                        class="mode-status vulnerable"
+                        id="modeStatus"
+                    >
+                        Vulnerável
+                    </span>
+
+                </div>
+
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label for="username">
+                            Usuário
+                        </label>
+
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Digite o usuário"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Digite a senha"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        class="login-button"
+                        type="submit"
+                    >
+                        Testar Login
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- CONSULTA SQL -->
+
+            <div class="query-card">
+
+                <div class="query-header">
+
+                    <div>
+
+                        <p class="small-label">
+                            SQL QUERY
+                        </p>
+
+                        <h2>
+                            Consulta gerada
+                        </h2>
+
+                    </div>
+
+                    <span class="database-badge">
+                        SQLite
+                    </span>
+
+                </div>
+
+
+                <pre id="queryPreview"><code>SELECT * FROM users
+WHERE username = '...'
+AND password = '...';</code></pre>
+
+            </div>
+
+
+            <!-- RESULTADO -->
+
+            <div class="result-card">
+
+                <p class="small-label">
+                    RESULTADO
+                </p>
+
+                <div
+                    class="result-content"
+                    id="resultContent"
+                >
+
+                    <span class="result-icon">
+                        ○
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Aguardando teste
+                        </h3>
+
+                        <p>
+                            Preencha os campos e execute uma tentativa
+                            de login.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPLICAÇÃO -->
+
+            <div class="explanation-grid">
+
+                <article class="explanation-card">
+
+                    <span class="explanation-icon">
+                        ⚠️
+                    </span>
+
+                    <h3>
+                        Modo vulnerável
+                    </h3>
+
+                    <p>
+                        Demonstra o risco de construir consultas SQL
+                        utilizando concatenação direta de entradas do
+                        usuário.
+                    </p>
+
+                </article>
+
+
+                <article class="explanation-card">
+
+                    <span class="explanation-icon">
+                        🛡️
+                    </span>
+
+                    <h3>
+                        Modo seguro
+                    </h3>
+
+                    <p>
+                        Utiliza consultas parametrizadas para manter
+                        os dados separados da estrutura do comando SQL.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <!-- BOAS PRÁTICAS -->
+
+            <div class="practices-card">
+
+                <h2>
+                    🔐 Boas práticas
+                </h2>
+
+                <div class="practice-list">
+
+                    <span>✓ Parameterized Queries</span>
+
+                    <span>✓ Prepared Statements</span>
+
+                    <span>✓ Input Validation</span>
+
+                    <span>✓ Least Privilege</span>
+
+                </div>
+
+            </div>
+
+
+            <p class="footer-message">
+                Educational Security Lab • Python • Flask • SQLite
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+</body>
+
+</html>
